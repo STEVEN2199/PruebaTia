@@ -1,7 +1,8 @@
 import requests
 
 # Ruta del archivo
-file_path = "C:/Users/dante/Documentos/TiaPrueba/Enemigos.txt"
+file_path = "C:/Users/SSD/Documents/TiaPrueba/Enemigos.txt"
+
 
 # Servidor donde correrá la API en Java
 API_URL = "http://localhost:8080"

@@ -46,6 +46,16 @@ public class ReporteService {
             row.createCell(2).setCellValue(e.getNumeroTropas() != null ? e.getNumeroTropas().toString() : "0");
         }
 
+        // Ajustar el ancho de las columnas
+        sheet.autoSizeColumn(0); // Ajusta el ancho de la columna 0 (Potencia)
+        sheet.autoSizeColumn(1); // Ajusta el ancho de la columna 1 (Frente)
+        sheet.autoSizeColumn(2); // Ajusta el ancho de la columna 2 (Total de Tropas)
+
+        // Agregar un poco de espacio extra (opcional)
+        for (int i = 0; i < 3; i++) {
+            sheet.setColumnWidth(i, (int) (sheet.getColumnWidth(i) * 1.2)); // Aumenta el ancho en un 20%
+        }
+
         FileOutputStream fileOut = new FileOutputStream(filePath); // Usa el filePath pasado como argumento
         workbook.write(fileOut);
         fileOut.close();

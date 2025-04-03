@@ -8,6 +8,9 @@ API_URL = "http://localhost:8080"
 
 # Leer archivo línea por línea
 with open(file_path, "r", encoding="utf-8") as file:
+    
+    next(file)  # Saltar la primera línea (cabecera)
+    
     for line in file:
         # Separar por "|"
         data = line.strip().split("|")

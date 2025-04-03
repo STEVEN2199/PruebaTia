@@ -1,12 +1,12 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/pruebatia?createDatabaseIfNotExist=true&autoReconnect=true&serverTimezone=UTC
-    username: root # Reemplaza con tu usuario de MySQL
-    password: STEVEN2199 # Reemplaza con tu contraseña de MySQL
+    username: dantezz # Reemplaza con tu usuario de MySQL
+    password: natasha2150_ # Reemplaza con tu contraseña de MySQL
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true

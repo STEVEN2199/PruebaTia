@@ -1,13 +1,14 @@
 import requests
 
 # Ruta del archivo
-file_path = "/Users/SSD/Descargas/Enemigos.txt"
+file_path = "C:/Users/dante/Documentos/TiaPrueba/Enemigos.txt"
 
 # Servidor donde correrá la API en Java
 API_URL = "http://localhost:8080"
 
 # Leer archivo línea por línea
 with open(file_path, "r", encoding="utf-8") as file:
+    next(file)
     for line in file:
         # Separar por "|"
         data = line.strip().split("|")
@@ -25,7 +26,13 @@ with open(file_path, "r", encoding="utf-8") as file:
             "ubicacion": ubicacion
         })
         print(f"Enviado a /enemigos: {response1.status_code}")
-
+        print({
+                "potencia": potencia,
+                "frente": frente,
+                "numero_tropas": int(numero_tropas),
+                "tipo_tropas": tipo_tropas,
+                "hora_despliegue": hora_despliegue
+            })
         # Enviar datos a /tropas
         response2 = requests.post(f"{API_URL}/api/v1/Tropa/tropas", json={
             "potencia": potencia,

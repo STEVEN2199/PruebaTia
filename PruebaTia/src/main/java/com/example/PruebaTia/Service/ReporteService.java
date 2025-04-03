@@ -1,5 +1,7 @@
 package com.example.PruebaTia.Service;
 
+import com.example.PruebaTia.Dtos.EnemigosDTO;
+import com.example.PruebaTia.Dtos.TropasRequestDTO;
 import com.example.PruebaTia.Model.*;
 import com.example.PruebaTia.Repository.TropasRepository;
 import org.apache.poi.ss.usermodel.*;
@@ -17,8 +19,18 @@ public class ReporteService {
     private TropasRepository tropasRepo;
 
     public void generarReporte(String filePath) throws IOException { // Método actualizado para aceptar String
-        List<Tropas> tropas = tropasRepo.findAll();
+//        List<Tropas> tropas = tropasRepo.findAll();
+//        List<EnemigosDTO> enemigosDTOS = tropasRepo.getEnemigosReport();
+        List<Object[]> resultados = tropasRepo.getEnemigosReport();
+        List<EnemigosDTO> enemigosDTOS = resultados.stream()
+                .map(r -> new EnemigosDTO(
+                        (String) r[0],  // potencia
+                        (String) r[1],  // frente
+                        ((Number) r[2]).longValue() // numeroTropas
+                ))
+                .toList();
         Workbook workbook = new XSSFWorkbook();
+
         Sheet sheet = workbook.createSheet("Reporte Tropas");
 
         Row header = sheet.createRow(0);
@@ -27,11 +39,11 @@ public class ReporteService {
         header.createCell(2).setCellValue("Total de Tropas");
 
         int rowNum = 1;
-        for (Tropas t : tropas) {
+        for (EnemigosDTO e : enemigosDTOS) {
             Row row = sheet.createRow(rowNum++);
-            row.createCell(0).setCellValue(t.getPotencia());
-            row.createCell(1).setCellValue(t.getFrente());
-            row.createCell(2).setCellValue(t.getNumeroTropas());
+            row.createCell(0).setCellValue(e.getPotencia() != null ? e.getPotencia() : "0");
+            row.createCell(1).setCellValue(e.getFrente() != null ? e.getFrente() : "0");
+            row.createCell(2).setCellValue(e.getNumeroTropas() != null ? e.getNumeroTropas().toString() : "0");
         }
 
         FileOutputStream fileOut = new FileOutputStream(filePath); // Usa el filePath pasado como argumento

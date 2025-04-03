@@ -7,75 +7,67 @@ public class Tropas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTropa;
-    @Column(length = 25)
-    private String potencia;
-    @Column(length = 25)
+
+    @Column(length = 25, name = "potenciaId")
+    private Long potenciaId;
+
+    @Column(length = 25, name = "frente")
     private String frente;
+
+    @Column(length = 25, name = "numeroTropas")
     private int numeroTropas;
-    @Column(length = 25)
+
+    @Column(length = 25, name = "tipoTropas")
     private String tipoTropas;
-    @Column(length = 25)
+
+    @Column(length = 25, name = "horaDespliegue")
     private String horaDespliegue;
 
-    //getters and setters
-    public Long getidTropa() {
-
+    public Long getIdTropa() {
         return idTropa;
     }
 
-    public void setidTropa(Long idTropa) {
-
+    public void setIdTropa(Long idTropa) {
         this.idTropa = idTropa;
     }
 
-    public String getPotencia() {
-
-        return potencia;
+    public Long getPotenciaId() {
+        return potenciaId;
     }
 
-    public void setPotencia(String potencia) {
-
-        this.potencia = potencia;
+    public void setPotenciaId(Long potenciaId) {
+        this.potenciaId = potenciaId;
     }
 
     public String getFrente() {
-
         return frente;
     }
 
     public void setFrente(String frente) {
-
         this.frente = frente;
     }
 
     public int getNumeroTropas() {
-
         return numeroTropas;
     }
 
     public void setNumeroTropas(int numeroTropas) {
-
         this.numeroTropas = numeroTropas;
     }
 
-
     public String getTipoTropas() {
-
         return tipoTropas;
     }
 
     public void setTipoTropas(String tipoTropas) {
-
         this.tipoTropas = tipoTropas;
     }
 
     public String getHoraDespliegue() {
-
         return horaDespliegue;
     }
 
     public void setHoraDespliegue(String horaDespliegue) {
-
         this.horaDespliegue = horaDespliegue;
     }
 }

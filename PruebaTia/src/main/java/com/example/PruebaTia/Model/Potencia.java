@@ -8,11 +8,11 @@ public class Potencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPotencia;
-    @Column(length = 25)
+    @Column(length = 25, name = "potencia")
     private String potencia;
-    @Column(length = 25)
+    @Column(length = 25, name = "hostilidad")
     private String hostilidad;
-    @Column(length = 50)
+    @Column(length = 50, name = "ubicacion")
     private String ubicacion;
 
     //getters and setters

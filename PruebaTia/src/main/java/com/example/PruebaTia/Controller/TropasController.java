@@ -1,5 +1,6 @@
 package com.example.PruebaTia.Controller;
 
+import com.example.PruebaTia.Dtos.TropasRequestDTO;
 import com.example.PruebaTia.Model.Tropas;
 import com.example.PruebaTia.Repository.TropasRepository;
 import com.example.PruebaTia.Service.TropasService;
@@ -15,7 +16,8 @@ public class TropasController {
     TropasRepository tropasRepository;
 
     @PostMapping("/tropas")
-    public void saveUpdate(@RequestBody Tropas tropas) {
-        tropasService.saveOrUpdate(tropas);
+    public void saveUpdate(@RequestBody TropasRequestDTO tropasRequestDTO) {
+        System.out.println(tropasRequestDTO);
+        tropasService.saveOrUpdate(tropasRequestDTO);
     }
 }

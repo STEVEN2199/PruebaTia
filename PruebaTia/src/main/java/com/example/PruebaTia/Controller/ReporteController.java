@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.io.File;
 import java.io.IOException;
 
-@RestController
+@Controller // Cambiado a @Controller
 public class ReporteController {
 
     @Autowired

@@ -7,10 +7,14 @@ public class Tropas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTropa;
+    @Column(length = 25)
     private String potencia;
+    @Column(length = 25)
     private String frente;
     private int numeroTropas;
+    @Column(length = 25)
     private String tipoTropas;
+    @Column(length = 25)
     private String horaDespliegue;
 
     //getters and setters

@@ -85,7 +85,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 				<configuration>
-					<mainClass>com.example.PruebaTia.ReporteUIApp</mainClass>
+					<mainClass>com.example.PruebaTia.PruebaTiaApplication</mainClass>
 				</configuration>
 			</plugin>
 
